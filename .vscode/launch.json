@@ -6,7 +6,7 @@
       "type": "cppdbg",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "program": "${command:cmake.launchTargetPath}",
+      "program": "build/debug/build/Secure/GTZC_TZSC_MPCBB_TrustZone_Secure.elf",
       "MIMode": "gdb",
       "miDebuggerPath": "${command:vscode-embedded.st.gdb}",
       "miDebuggerServerAddress": "localhost:3333",
@@ -16,7 +16,13 @@
       "stopAtConnect": true,
       "postRemoteConnectCommands": [
         {
-          "text": "load build/debug/build/GTZC_TZSC_MPCBB_TrustZone_NonSecure.elf"
+          "text": "load build/debug/build/NonSecure/GTZC_TZSC_MPCBB_TrustZone_NonSecure.elf"
+        },
+        {
+          "text": "load build/debug/build/Secure/GTZC_TZSC_MPCBB_TrustZone_Secure.elf"
+        },
+        {
+          "text": "add-symbol-file build/debug/build/NonSecure/GTZC_TZSC_MPCBB_TrustZone_NonSecure.elf"
         }
       ],
       "logging": {
